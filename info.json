@@ -1,0 +1,11 @@
+{
+  "name": "real-wind",
+  "version": "1.0.8",
+  "title": "Real Wind",
+  "author": "Squishy1870",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base >= 2.0.0"
+  ],
+  "description": "Adds Nauvis-only wind with dynamic gusts, leaf/debris sweeps, canopy ripple effects, branch shimmer, forest gust wisps, and positional wind whoosh audio. Stand-alone, UPS-friendly, and optionally boosted by Real Rain storms."
+}
