@@ -1,37 +1,101 @@
-[mod-name]
-real-wind=Real Wind
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 2026-06-15
+  Changes:
+    - Replaced the previous MIT license file with the full GNU General Public License v3.0 text.
+    - Added GPLv3 licensing note to the README.
+  Notes:
+    - Existing saves can update from 1.0.7 without needing to reset settings.
 
-[mod-description]
-real-wind=Adds Nauvis-only forest wind with leaf/debris sweeps, canopy ripple effects, branch shimmer, forest gust wisps, and positional wind whoosh audio. Stand-alone, UPS-friendly, and optionally boosted by Real Rain storms.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 2026-06-15
+  Changes:
+    - Removed all bird ambience audio files from the mod package.
+    - Removed the bird sound prototype and runtime bird playback logic.
+    - Kept the positional forest wind whoosh audio for a pure wind-only ambience pass.
+    - Updated the mod description, README, and locale text to describe Real Wind as a wind-only mod.
+  Notes:
+    - Existing saves can update from 1.0.6 without needing to reset settings.
 
-[mod-setting-name]
-real-wind-intensity=Wind intensity
-real-wind-enable-leaves=Enable leaf/debris motes
-real-wind-enable-tree-sway=Enable tree wind FX
-real-wind-enable-sounds=Enable wind gust sounds
-real-wind-sound-volume=Forest wind sound volume
-real-wind-apply-surface-wind=Apply real surface wind
-real-wind-effect-interval=Effect interval
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 2026-06-14
+  Features:
+    - Added optional Real Rain storm boost interface.
+    - Rain/storms can now push Real Wind harder when both mods are installed.
+    - Added remote wind state API for Real Smoke and Real Steam.
+  Compatibility:
+    - Still works fully stand-alone when Real Rain, Real Smoke, or Real Steam are not installed.
 
-[mod-setting-description]
-real-wind-intensity=Controls wind speed, forest leaf FX, gust strength, and wind audio frequency.
-real-wind-enable-leaves=Spawns drifting leaf/debris motes and small leaf sweeps near all tree prototypes on Nauvis.
-real-wind-enable-tree-sway=Adds extra branch shimmer, canopy ripple, and forest gust wisps around all tree prototypes on Nauvis. Factorio tree sprites cannot truly bend, so this fakes motion with wind-driven overlay effects.
-real-wind-enable-sounds=Adds positional forest wind whooshes from nearby trees during gusts on Nauvis.
-real-wind-sound-volume=Master volume multiplier for Real Wind whoosh ambience. Wind audio is emitted from nearby tree positions and fades with distance.
-real-wind-apply-surface-wind=Changes Nauvis surface wind so wind-aware smoke follows the current wind direction. Real Rain storms can boost this when both mods are installed.
-real-wind-effect-interval=Ticks between visual effect spawn passes. Lower values look denser but cost more UPS.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2026-06-15
+  Changes:
+    - Reworked forest bird ambience so it is emitted from actual nearby tree positions instead of the player.
+    - Added distance-based bird volume so birds become louder when the player moves closer to trees and quieter when moving away.
+    - Split the long bird ambience bed into shorter positional clips so the source position and volume can update more naturally while walking through forests.
+    - Made gust whoosh sounds positional from nearby trees as well.
+    - Kept all ambience Nauvis-only and tree-only.
+  Notes:
+    - This should make forest sound feel like it is coming from the trees, not from the camera or player body.
 
-[string-mod-setting]
-real-wind-intensity-subtle=Subtle
-real-wind-intensity-balanced=Balanced
-real-wind-intensity-strong=Strong
-real-wind-intensity-cinematic=Cinematic / AAA
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2026-06-15
+  Changes:
+    - Removed all dust gust visuals so Real Wind no longer creates ground dust/haze.
+    - Removed the dust runtime setting and cleaned up the description text.
+    - Made forest sounds much more reliable by checking ambience before the visual effect density roll.
+    - Reprocessed the bird ambience to be louder and clearer in-game.
+    - Increased the default forest ambience volume from 0.65 to 1.0 and allowed volume up to 2.0.
+    - Made wind whoosh audio louder during gusts.
+  Notes:
+    - Forest ambience remains Nauvis-only and only plays near trees.
 
-[real-wind]
-command-help=Shows Real Wind status.
-command-gust-help=Starts a stronger wind gust. Admin only in multiplayer.
-message-settings-updated=Real Wind settings updated.
-message-status=Real Wind: __1__ | Nauvis only | base wind __2__ | gust wind __3__
-message-gust=Real Wind gust triggered on Nauvis.
-message-admin-only=Only admins can trigger a Real Wind gust.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-06-15
+  Features:
+    - Made Real Wind effects Nauvis-only.
+    - Expanded tree wind FX so every nearby tree prototype on Nauvis can receive wind overlays.
+    - Added branch shimmer and stronger forest gust wisps.
+    - Increased nearby tree scan radius and density for a fuller forest wind feel.
+    - Added forest bird ambience using the supplied audio file.
+    - Added soft wind whoosh ambience during gusts.
+    - Added runtime settings for forest wind sounds and sound volume.
+  Notes:
+    - The mod still avoids global all-tree scans for UPS safety; it applies the effect to all tree types near connected players on Nauvis.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2026-06-15
+  Features:
+    - Added stronger tree wind FX to make forests feel more alive.
+    - Added leaf sweep and canopy ripple smoke effects around trees.
+    - Increased wind speed and gust strength across all intensity profiles.
+    - Increased default effect density by lowering the default interval from 75 ticks to 60 ticks.
+    - Added a runtime setting to enable or disable tree wind FX separately.
+  Notes:
+    - Factorio tree sprites cannot physically bend, so Real Wind now fakes movement with wind-driven overlay effects and leaf/debris motion.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-06-15
+  Bugfixes:
+    - Fixed startup crash caused by the base smoke-fast sprite sheet using one row of 16 frames.
+    - Corrected Real Wind dust/leaf smoke animation line length from 4 to 16.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-06-15
+  Features:
+    - Initial Real Wind release.
+    - Added dynamic surface wind controller.
+    - Added built-in dust gusts on natural dusty terrain.
+    - Added subtle leaf/debris motes near trees.
+    - Added runtime settings for intensity, dust, leaves, surface wind, and effect interval.
+    - Added /real-wind status command.
+    - Added /real-wind-gust admin command.
+  Notes:
+    - Stand-alone mod. No Real Smoke, Real Steam, or Dust mod dependency.
